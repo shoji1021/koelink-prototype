@@ -6,7 +6,7 @@ import os
 
 print("=== KoeLink データ記録ツール ===")
 # 起動時に、今回記録する手話の意味を入力してもらいます
-target_label = input("今回記録する手話の意味（例: hello, thanks, me）を半角英数字で入力してください: ")
+target_label = input("今回記録する手話の意味（例: hello, thanks, こんにちは）を入力してください: ")
 
 # 保存先フォルダの作成
 SAVE_DIR = "gesture_data"
@@ -68,10 +68,10 @@ with mp_holistic.Holistic(
 
         # UI表示
         if is_recording:
-            cv2.putText(image, f"RECORDING: {target_label}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 3)
+            cv2.putText(image, f"RECORDING:target_label", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 3)
             cv2.putText(image, f"Frames: {len(gesture_frames)}", (20, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
         else:
-            cv2.putText(image, f"Ready: {target_label} (Press 'R')", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+            cv2.putText(image, f"Ready:target_label (Press 'R')", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
 
         cv2.imshow('KoeLink - Data Collector', image)
 
